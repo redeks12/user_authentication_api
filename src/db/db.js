@@ -1,9 +1,7 @@
 import { Sequelize } from "sequelize";
-
-const db = new Sequelize({
-  dialect: "sqlite",
-  storage: "./database.db",
-  logging: false,
-});
+import dotenv from "dotenv";
+import process from "process";
+dotenv.config();
+const db = new Sequelize(process.env.DB_ADDR, { logging: false });
 
 export default db;
