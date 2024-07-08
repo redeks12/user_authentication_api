@@ -8,9 +8,7 @@ class OrganisationController {
     try {
       const user_id = req.userData.userId;
       const user = await User.findByPk(user_id);
-
       const orgs = await user.getOrganisations();
-
       let pack = [];
       for (let i of orgs) {
         // eslint-disable-next-line no-unused-vars

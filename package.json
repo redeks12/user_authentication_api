@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha 'tests/**/*.js' --exit",
+    "test": "mocha 'src/tests/**/*.js' --exit",
     "lint": "eslint .",
     "build": "babel src -d dist",
     "start": "nodemon src/server.js"

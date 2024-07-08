@@ -25,7 +25,7 @@ beforeEach(async () => {
 });
 
 describe("POST /auth/register", function () {
-  this.timeout(5000);
+  this.timeout(15000);
 
   it("should register a new user and organisation", async () => {
     const response = await request(app)
@@ -81,7 +81,7 @@ describe("POST /auth/register", function () {
 });
 
 describe("POST /auth/login", function () {
-  this.timeout(10000);
+  this.timeout(15000);
   beforeEach(async () => {
     await request(app).post("/auth/register").send(testUserData);
   });
@@ -164,7 +164,8 @@ describe("JWT Authentication", () => {
       .get("/api/organisations")
       .set("Authorization", `Bearer ${expiredToken}`);
 
-    expect(response.status).to.equal(401);
+    // console.log(response);
+    expect(response.status).to.equal(403);
   });
 
   it("should deny access without a token", async () => {

@@ -4,10 +4,10 @@ import process from "process";
 dotenv.config();
 
 let db;
-console.log(process.env.DB_ADDR);
 if (process.env.DB_ADDR) {
   db = new Sequelize(process.env.DB_ADDR, {
     dialect: "postgres",
+    logging: false
   });
 } else {
   db = new Sequelize({

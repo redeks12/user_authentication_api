@@ -21,8 +21,6 @@ function generateToken(payload, expiresIn = "1h") {
   try {
     const jwt = njwt.create(payload, secretKey);
     jwt.setExpiration(new Date().getTime() + expiresIn * 60 * 60 * 1000);
-    console.log(jwt);
-    console.log(jwt.compact());
     return jwt.compact();
   } catch (error) {
     console.error("Error generating token:", error);
@@ -41,7 +39,6 @@ function generateToken(payload, expiresIn = "1h") {
 function verifyToken(token) {
   try {
     const verifiedJwt = njwt.verify(token, secretKey);
-    console.log(verifiedJwt);
     return verifiedJwt;
   } catch (error) {
     console.error("Error verifying token:", error);
