@@ -9,7 +9,7 @@ const authenticate = (req, res, next) => {
       throw new Error("invalid token");
     }
 
-    req.userData = decoded;
+    req.userData = decoded.body;
     next();
   } catch (error) {
     if (error.name === "TokenExpiredError") {

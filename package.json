@@ -7,7 +7,7 @@
     "test": "mocha 'tests/**/*.js' --exit",
     "lint": "eslint .",
     "build": "babel src -d dist",
-    "start": "nodemon dist/server.js"
+    "start": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "jsonwebtoken": "^9.0.2",
     "jwt-token": "^1.0.9",
     "morgan": "^1.10.0",
+    "njwt": "^2.0.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7",
