@@ -7,7 +7,12 @@ const secretKey = process.env.JWT_SECRET;
 
 // Function to generate a JWT token
 function generateToken(payload, expiresIn = "1h") {
-  return sign(payload, secretKey, { expiresIn });
+  try {
+    return sign(payload, secretKey, { expiresIn });
+  } catch (error) {
+    console.error("Error generating token:", error);
+    throw error;
+  }
 }
 
 // Function to verify a JWT token

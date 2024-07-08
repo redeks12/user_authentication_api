@@ -17,12 +17,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(cors());
 
-try {
-  await db.authenticate();
-  console.log("Connection has been established successfully.");
-} catch (error) {
-  console.error("Unable to connect to the database:", error);
-}
+db.authenticate()
+  .then(() => {
+    console.log("Connection has been established successfully.");
+  })
+  .catch((error) => {
+    console.error("Unable to connect to the database:", error);
+  });
 
 app.use("/auth", Auth);
 app.use("/api/users", Users);
